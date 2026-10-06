@@ -28,9 +28,9 @@ function checkBindings(env = process.env, b = bindings) {
   assert.equal(b.owner_id, '111864431');
   assert.equal(b.validation_ref, 'refs/heads/validation/cline-slash-suffix-20261007');
   assert.equal(b.base_commit, 'b2c7148cd9286317875d46046efa9fd06caf7288');
-  assert.equal(b.source_commit, '81c0e45a69359c6119aaee1ffddde5f5be02b621');
+  assert.equal(b.source_commit, '20da1187ae15763396de61a5b89d6ada3fccfaab');
   assert.equal(b.base_tree, 'c630dde38001e849f54873640551bc74db4c39c1');
-  assert.equal(b.source_tree, 'e5313efa1d6b4f48a420c7903416e9f96a5d224c');
+  assert.equal(b.source_tree, 'ea6a9c753e7f47957536317aca22ec2af5e2c43e');
   assert.equal(process.versions.node.split('.')[0], b.node_major);
 }
 

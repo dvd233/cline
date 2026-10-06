@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           repository: dvd233/cline
-          ref: 81c0e45a69359c6119aaee1ffddde5f5be02b621
+          ref: 20da1187ae15763396de61a5b89d6ada3fccfaab
           path: candidate
           fetch-depth: 2
           persist-credentials: false
