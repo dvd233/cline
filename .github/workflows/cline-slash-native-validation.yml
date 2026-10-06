@@ -1,0 +1,62 @@
+name: Cline slash suffix native baseline and candidate validation
+
+on:
+  push:
+    branches:
+      - validation/cline-slash-suffix-20261007
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: ${{ github.event_name == 'push' && github.repository_id == '1407997359' && github.repository_owner_id == '111864431' && github.ref == 'refs/heads/validation/cline-slash-suffix-20261007' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out only the separately reviewed harness
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          path: validation
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '22'
+      - name: Require verified immutable source bindings
+        run: node validation/.github/validation/cline-slash-validate.cjs check-bindings
+        env:
+          VALIDATION_OUTPUT: ${{ runner.temp }}/cline-slash-validation
+      - name: Set up the exact repository Bun version
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: '1.4.2'
+      - name: Check out the unchanged upstream baseline
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: cline/cline
+          ref: b2c7148cd9286317875d46046efa9fd06caf7288
+          path: baseline
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Check out the verified two-file source commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: dvd233/cline
+          ref: 81c0e45a69359c6119aaee1ffddde5f5be02b621
+          path: candidate
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Run original-lock quality and full webview comparisons with exact regression controls
+        run: node validation/.github/validation/cline-slash-validate.cjs run baseline candidate
+        env:
+          VALIDATION_OUTPUT: ${{ runner.temp }}/cline-slash-validation
+      - name: Preserve every stage log and outcome even on failure
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: cline-slash-native-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/cline-slash-validation
+          if-no-files-found: error
+          retention-days: 14

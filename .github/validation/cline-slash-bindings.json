@@ -1,0 +1,42 @@
+{
+  "source_repository": "dvd233/cline",
+  "repository_id": "1407997359",
+  "owner_id": "111864431",
+  "validation_ref": "refs/heads/validation/cline-slash-suffix-20261007",
+  "base_repository": "cline/cline",
+  "base_commit": "b2c7148cd9286317875d46046efa9fd06caf7288",
+  "base_tree": "c630dde38001e849f54873640551bc74db4c39c1",
+  "source_commit": "81c0e45a69359c6119aaee1ffddde5f5be02b621",
+  "source_tree": "e5313efa1d6b4f48a420c7903416e9f96a5d224c",
+  "node_major": "22",
+  "bun_version": "1.4.2",
+  "vitest_version": "3.2.7",
+  "changes": [
+    {
+      "path": "apps/vscode/webview-ui/src/utils/slash-commands.ts",
+      "base_blob_sha": "2c59850bf844e78e5c900508baf6ef02d5246a01",
+      "candidate_blob_sha": "184560cedb40fdb99e24d3dc7f67a733a39de32c",
+      "candidate_sha256": "941282da4a72b34bd6a1f41174d5c7644f463db7ce07ae27023783770c674f3d",
+      "bytes": 8861
+    },
+    {
+      "path": "apps/vscode/webview-ui/src/utils/__tests__/slash-commands.test.ts",
+      "base_blob_sha": "511f654d80c485d58caba6147b9575ec7f20f5ea",
+      "candidate_blob_sha": "4e96594481d14ecf12507fc7ff1764f0f63615f6",
+      "candidate_sha256": "d88d2575c711c4f56daa44e87364dde1c0febbd0bdaca3e3695e7e89af6fd156",
+      "bytes": 8545
+    }
+  ],
+  "unchanged_files": {
+    "bun.lock": "5ef743cfe99569f0ad1388fb5558c98a202d2869584ca812dd732e23cdf16d75",
+    "package.json": "5ee658835108f4c7216eab93a727fb82c3e55d6a003ae9c2b98b6d10f07e1cec",
+    "apps/vscode/package.json": "6611521f7a5871f9ad3fad082f526d5bdfa60a0a40be4b77b949b67a051c0089",
+    "apps/vscode/biome.jsonc": "7e4f9de4a6cd2834ca90ab5be3c8a51949e6160153047141f692ea0bbaf5605a",
+    "apps/vscode/webview-ui/package.json": "d9868c60140c79f566e6286bab808146ca79538e5a4873892f0bc0c03e490231",
+    "apps/vscode/webview-ui/vite.config.ts": "74d714998a5e0459fad5799c0a3f90ee8894da4e425f6ff62c1c28611d2e4b80",
+    "apps/vscode/webview-ui/src/setupTests.ts": "93ec26edf5748b2797ac23cd99cec3dcd70028051cdd318e2f53e3c107a18e91",
+    "apps/vscode/webview-ui/src/config/platform.config.ts": "dbb5961b23d05a2f645fc5a7ad881cafc685b612dd987886ad744038eab58ba5",
+    "apps/vscode/webview-ui/src/config/platform-configs.json": "94514c930e8d13a28eeb8274d0ce35127b04f56786423dda41c49110764bfe63",
+    "apps/vscode/src/shared/slashCommands.ts": "1d4f02444070500692d0672ddabadf4faf9da0110f67709d0d45b5a6d040c4de"
+  }
+}
